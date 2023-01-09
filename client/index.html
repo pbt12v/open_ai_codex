@@ -10,13 +10,29 @@
   <body>
     <div id="app">
       <div id="chat_container"></div>
-
+      
+      <!-- Add code display and copy functionality -->
+      <textarea id="code" rows="10" cols="50">
+        // code to display goes here
+      </textarea>
+      <button id="copy-button">Copy Code</button>
+      
       <form>
-        <textarea name="prompt" rows="1" cols="1" placeholder="Ask Pete..."></textarea>
+        <textarea name="prompt" rows="1" cols="1" placeholder="Ask codex..."></textarea>
         <button type="submit"><img src="assets/send.svg" alt="send" />
       </form>
     </div>
 
-    <script type="module" src="script.js"></script>
+    <script type="module">
+      // Add event listener to copy button
+      const copyButton = document.getElementById('copy-button');
+      const textarea = document.getElementById('code');
+
+      copyButton.addEventListener('click', () => {
+        textarea.select();
+        document.execCommand('copy');
+      });
+    </script>
   </body>
 </html>
+
